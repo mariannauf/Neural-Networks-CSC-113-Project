@@ -2,4 +2,9 @@
 
 ### Team Members:
 
-Moshe Oppenheim
+1. Moshe Oppenheim
+2. 
+3. 
+4. 
+5. 
+6. 
