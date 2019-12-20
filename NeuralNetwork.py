@@ -6,15 +6,34 @@ An Array-Based (n-tuple, weightless) neural network works as the following; Gene
  1
 I = {1, ..., N } representing all the indexes of the arrays (pixel positions of the images).
 For example; the index set for all images for this project, including three sample images above, the index set will be I = {1, ..., 12} since we are considering 4X3 images only. Also this does not have to be a set in Python, you can use a 1D list to represent that set.
+
+
+
+
+
 Generate the list R, of the values that we store in those indexes. For instance;
 RH1 = [1,0,1,1,1,1,1,0,1,1,0,1] representing all the values we store in those indexes for
 the first H character above. (Basically the array representation of the image)
 Determine a tuple size n for sampling from the images. For instance, n = 3 we will sample 3 randomly selected points from the image. You can set the tuple size any value that is less than the number N. This must be something you can edit easily, because it affects the performance of your neural network. Recommended tuple size is n = 3.
 Next, we create smaller, randomly generated index sets J ⊂ I based on the tuple size we cre- ate. For instance if tuple size n = 3 we can have J1 = {1,5,9}, J2 = {2,4,8}, J3 = {3,6,7} and J4 = {10, 11, 12}, note that the number of these sets are also a variable you should be able to change, but recommended number for those, m = 4
 Similarly we create smaller lists Sm based on the smaller index sets we randomly create. For instance smaller lists for the first character H above are; S1 = [1,1,1], S2 = [0,1,0] , S3 = [1, 1, 1] and S4 = [1, 0, 1]. All yields to the values we store in indexes that are grouped above as index sets J
+
+
+
+
+
+
+
+
+
+
 After that we create m = 4 empty arrays, for each class that will perform the machine learning for us. For instance, the arrays that are initially empty (you should have 0 as the initial values to be able to increment those values) for Class H will be as following; T1H,T2H,T3H,T4H, and for Class L will be as following; T1L,T2L,T3L,T4L. Each array will look like:
-During the training of our neural network we will increment the occurrences of each n=3 tuples by 1, each time they appear as the value of smaller list Sm that belongs to that specific class. We will increment the index equals to the the tuple value. So if tuple 010 occurs, we increment the corresponding index (binary 010 yields to index number 2) by 1. By the end of this process you will have 8 arrays that counts the occurrences of the sampled tuples 4 arrays for Class H, 4 arrays for Class L, After doing so your neural network will gain the ability to decide, intelligence, to discriminate between classes. To see how well your program does that we should do some testing by using our testing set. ”For the training, we provide the image as well as its class to our neural network.”
-  Page 2
+During the training of our neural network we will increment the occurrences of each n=3 tuples by 1, each time they appear as the value of smaller list Sm that belongs to that specific class. We will increment the index equals to the the tuple value. So if tuple 010 occurs, we increment the corresponding index (binary 010 yields to index number 2) by 1. By the end of this process you will have 8 arrays that counts the occurrences of the sampled tuples 4 arrays for Class H, 4 arrays for Class L, After doing so your neural network will gain the ability to decide, intelligence, to discriminate between classes. To see how well your program does that we should do some testing by using our testing. ”For the training, we provide the image as well as its class to our neural network.”
+  
+
+
+
+
 
 During the testing we will use the same smaller index sets Jm for sampling, we will sample a same small portions of the image (array) and let computer figure out its class. For instance, tuple of the image from an unknown class, S1 = [1, 1, 1], comes up, so we check the value in that index and add it to a sum value, after we do this for all of 4 tuples for each class arrays, we will have a sum value from Class H arrays, and a sum value from Class L arrays. The image from the unknown class will belong to the class that gives the higher sum. Your program must print the arrays from the testing set, and its actual class, and the class that is predicted by the computer. If those classes are the same, add element ”True” to the list. And after that an accuracy percentage which is calculated by the ratio of correctly classified classes."""
 
