@@ -7,6 +7,18 @@ An Array-Based (n-tuple, weightless) neural network works as the following; Gene
 I = {1, ..., N } representing all the indexes of the arrays (pixel positions of the images).
 For example; the index set for all images for this project, including three sample images above, the index set will be I = {1, ..., 12} since we are considering 4X3 images only. Also this does not have to be a set in Python, you can use a 1D list to represent that set.
 
+A= np.array([[[1,0,1,
+              1,1,1, 
+              1,0,1,
+             1,0,1)],
+B= np.array([[[1,0,1,
+              1,0,1,
+              1,1,1,
+              1,0,1]
+C= np.array([[[1,0,1,
+              1,1,1,
+              1,1,1,
+              1,0,1]]
 
 
 
