@@ -20,7 +20,24 @@ C= np.array([[[1,0,1,
               1,1,1,
               1,0,1]]
 
+class L:
+ pass
+class H:
+ pass
+ 
+ """Genrerate lists for one image Function """
+ def generateLists():
+ """represents all the indexes of the arrays(pixel positions of the images"""
+ indexSet= []
+ for i in range (12):
+ indexSet.append(i+1)
+ """random positions?"""
+ for i in range (12):
+  imageVal.append(random.choice([0,1]))
+  print (imageVal)
+ generateLists()
 
+ 
 
 
 Generate the list R, of the values that we store in those indexes. For instance;
