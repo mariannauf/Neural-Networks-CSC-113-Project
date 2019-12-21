@@ -7,35 +7,58 @@ An Array-Based (n-tuple, weightless) neural network works as the following; Gene
 I = {1, ..., N } representing all the indexes of the arrays (pixel positions of the images).
 For example; the index set for all images for this project, including three sample images above, the index set will be I = {1, ..., 12} since we are considering 4X3 images only. Also this does not have to be a set in Python, you can use a 1D list to represent that set.
 
-A= np.array([[[1,0,1,
-              1,1,1, 
-              1,0,1,
-             1,0,1)],
-B= np.array([[[1,0,1,
-              1,0,1,
-              1,1,1,
-              1,0,1]
-C= np.array([[[1,0,1,
-              1,1,1,
-              1,1,1,
-              1,0,1]]
+
+import random
+import copy
 
 class L:
- pass
+    pass
+
 class H:
- pass
- 
- """Genrerate lists for one image Function """
- def generateLists():
- """represents all the indexes of the arrays(pixel positions of the images"""
- indexSet= []
- for i in range (12):
- indexSet.append(i+1)
- """random positions?"""
- for i in range (12):
-  imageVal.append(random.choice([0,1]))
-  print (imageVal)
- generateLists()
+    pass
+
+# Generate Lists for One Image Function
+# copy of tupelset and then removed in order to avoid repetition of the numbers in the sets
+def createSubset(copiedSet, tupleSize):
+    tupleSets = []
+    for i in range(12 // tupleSize):
+        value = random.choice(copiedSet)
+        copiedSet.remove(value)
+        val1 = random.choice(copiedSet)
+        copiedSet.remove(val1)
+        val2 = random.choice(copiedSet)
+        copiedSet.remove(val2)
+        tupleSets.append((value, val1, val2))
+    return tupleSets
+
+
+def generateLists():
+    #represents all the indexes of the arrays(pixel positions of the images
+    indexSet = []
+    for i in range(12):
+        indexSet.append(i + 1)
+    # list R, values that stored in indexes
+    copiedSet = copy.deepcopy(indexSet)
+    imageVal = []
+    # random positions?
+    for i in range(12):
+        imageVal.append(random.choice([0, 1]))
+    copiedImageVal = copy.deepcopy(imageVal)
+    # print(imageVal)
+    tupleSize = 3
+    first = createSubset(copiedSet, tupleSize)
+    imageVal2 = []
+    # for i in first:
+    #     imageVal2.append(((imageVal[i[0-1]]), imageVal[i[1-1]], imageVal[i[2-1]]))
+
+    print(first)
+    print(indexSet)
+    print(imageVal)
+    print(imageVal2)
+
+
+generateLists()
+
 
  
 
