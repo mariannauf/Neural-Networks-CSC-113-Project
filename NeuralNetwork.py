@@ -48,13 +48,13 @@ def generateLists():
     tupleSize = 3
     first = createSubset(copiedSet, tupleSize)
     imageVal2 = []
-    # for i in first:
-    #     imageVal2.append(((imageVal[i[0-1]]), imageVal[i[1-1]], imageVal[i[2-1]]))
+        for i in first:
+        imageVal2.append((imageVal[i[0]-1],imageVal[i[1]-1],imageVal[i[2]-1]))
 
-    print(first)
-    print(indexSet)
-    print(imageVal)
-    print(imageVal2)
+    print("indexes:", indexSet)
+    print("image values:", imageVal)
+    print("list of tuples:", first)
+    print("smaller lists:", imageVal2)
 
 
 generateLists()
