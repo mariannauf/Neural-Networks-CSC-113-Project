@@ -1,11 +1,17 @@
-"""Python3 Software Project for creating a simple Python3 list (array) based (weightless) neural network. The project will have a dataset of 600 4X3 pixelated, black and white images for characters either L or H, that we can represent as arrays that contains 1 for black pixel, 0 for white pixel. 400 of those images will be the training set, and 200 of those images will be the testing set. To create such dataset, you only need to create arrays, that belongs to either Class L or Class H. For instance:
+"""Python3 Software Project for creating a simple Python3 list (array) based (weightless) neural network. The project will have a dataset of 600 4X3 pixelated, black and white images for characters either L or H, that we can represent as arrays that contains 1 for black pixel, 0 for white pixel. 
+400 of those images will be the training set, and 200 of those images will be the testing set. To create such dataset, you only need to create arrays, that belongs to either Class L or Class H. For instance:
 these different versions of character H, that belongs to Class H, can be represented as these Python3 lists respectively;
 [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1] [1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1] [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
-First part of the project is generating these arrays(not the actual images!), 300 for Class H, and 300 for Class L. Note that your image can have one or more pixel corrupted as the noise in the data. But we assume that the images are centered, normalized. A neural network works as training the system by giving some portion of your data and giving their classes for the training set and makes the neural network to be able to decide between classes of the testing set. After we train our neural network by providing 400 images as the training set, our network must be able to tell the class of 200 images from the testing set of which, classes are initially unknown to the neural network. Our neural network will decide which class, the image we provide from the testing set, belongs to.
+First part of the project is generating these arrays(not the actual images!), 300 for Class H, and 300 for Class L.
+Note that your image can have one or more pixel corrupted as the noise in the data. But we assume that the images are centered, normalized. 
+A neural network works as training the system by giving some portion of your data and giving their classes for the training set and makes the neural network to be able to decide between classes of the testing set. 
+After we train our neural network by providing 400 images as the training set, our network must be able to tell the class of 200 images from the testing set of which, classes are initially unknown to the neural network. 
+Our neural network will decide which class, the image we provide from the testing set, belongs to.
 An Array-Based (n-tuple, weightless) neural network works as the following; Generate the index set for the arrays that have fixed size N = 12.
  1
 I = {1, ..., N } representing all the indexes of the arrays (pixel positions of the images).
-For example; the index set for all images for this project, including three sample images above, the index set will be I = {1, ..., 12} since we are considering 4X3 images only. Also this does not have to be a set in Python, you can use a 1D list to represent that set.
+For example; the index set for all images for this project, including three sample images above, the index set will be I = {1, ..., 12} since we are considering 4X3 images only.
+Also this does not have to be a set in Python, you can use a 1D list to represent that set.
 
 
 import random
