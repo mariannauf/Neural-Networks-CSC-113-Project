@@ -1,3 +1,4 @@
+# Final Project Neural Networks
 import random
 import copy
 
@@ -23,7 +24,9 @@ class L:
             newTup1 = ''.join([str(listOftuples[i][0]), str(listOftuples[i][1]), str(listOftuples[i][2])])
             newArr1 = binaryToDecimal(newTup1)
             self.sum += self.firstArray[i][int(newArr1)]
-        return self.sum
+        temp = self.sum
+        self.sum = 0
+        return temp
 
     def __str__(self):
         return str(self.firstArray)
@@ -47,7 +50,9 @@ class H:
             newTup1 = ''.join([str(listOftuples[i][0]), str(listOftuples[i][1]), str(listOftuples[i][2])])
             newArr1 = binaryToDecimal(newTup1)
             self.sum += self.firstArray[i][int(newArr1)]
-        return self.sum
+        temp = self.sum
+        self.sum = 0
+        return temp
 
     def __str__(self):
         return str(self.firstArray)
@@ -84,16 +89,12 @@ def generateLists():
 
 def createImage(first):
     imageVal = []
-    # random positions of 0 and
-
+    # random positions of 0 and 1 for array representation of image
     for i in range(12):
         imageVal.append(random.choice([0, 1]))
     imageVal2 = []
     for i in first:
         imageVal2.append((imageVal[i[0] - 1], imageVal[i[1] - 1], imageVal[i[2] - 1]))
-    # #    print("image values:",imageVal)
-    # #    print("listoftuples:",first)
-    # #    print("smallerlists:",imageVal2)
     return imageVal2
 
 
@@ -101,35 +102,21 @@ def createImage1(first, imageVal):
     imageVal2 = []
     for i in first:
         imageVal2.append((imageVal[i[0] - 1], imageVal[i[1] - 1], imageVal[i[2] - 1]))
-
-    ##    print("image values:",imageVal)
-    ##    print("listoftuples:",first)
-    ##    print("smallerlists:",imageVal2)
     return imageVal2
-
-
-def arrayRep(image, first):
-    arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for i in range(len(first)):
-        for j in range(len(first[i])):
-            arr[first[i][j] - 1] = image[i][j]
-    return arr
 
 
 def actualTest():
     f = open("actual.txt", "r")
     images = []
     x = []
-    su = 0
     for i in f:
-        su += 1
         images.append(i.split())
     for j in images:
         for i in range(len(j[0])):
             x.append(int(j[0][i]))
         j[0] = x
         x = []
-    # print(su)
+
     return images
 
 
@@ -147,9 +134,9 @@ def trainNetwork(totalImages):
 
 def predictedTest(imageX, first, l, h):
     # Image X
-
     imagen = createImage1(first, imageX)
-
+    print(l.test(imagen))
+    print(h.test(imagen))
     if l.test(imagen) > h.test(imagen):
         return 'L'
     else:
@@ -161,25 +148,21 @@ def main():
     ratio = 0
     actual = actualTest()
     output = []
-    for i in range(200):
+    for i in range(len(actual)):
         predict = predictedTest(actual[i][0], first, l, h)
-        # print(actual[i][1],predict)
         output.append(actual[i][0])
         output.append(" Actual: ," + actual[i][1] + " Predicted Class: ," + predict)
         if (actual[i][1] == predict):
-            output.append("True")
+            output.append(",True")
             ratio += 1
         else:
-            output.append("False")
+            output.append(", False ")
         print(output)
         output = []
-    print("Accuracy: ", (ratio / 200) * 100, "%")
-
+    print("Accuracy: ", (ratio / len(actual)) * 100, "%")
 
 
 main()
-
-
 
 
 
